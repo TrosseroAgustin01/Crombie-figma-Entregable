@@ -1,6 +1,7 @@
 import "../css/Principal.css"
 import "../../public/img/checked_190411.png"
-import Plans from "./Plans"
+/* import Plans from "./Plans" */
+import PlanType from "./PlanType";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NetWork from "./Network";
 
@@ -9,13 +10,13 @@ import NetWork from "./Network";
 export default function Principal() {
     return (
         <main className="container mt-5">
-            <div className="row ">
+            <div className="row bg-white rounded-3 mb-4 ">
                 {/* Contenedor para el contenido */}
                 <div className="col-md-6">
                     <h1 className="mt-5">Want anything to be easy with LaslesVPN.</h1>
                     <p className="mt-5">Provide a network for all your needs with ease and fun using LaslesVPN discover interesting features from us.</p>
                     <div className="d-grid gap-2 col-6 mx-auto ms-5">
-                        <button className="btn btn-danger mt-5 mb-5">Get Started</button>
+                        <button className="button-shadow btn btn-danger mt-5 mb-5">Get Started</button>
                     </div>
                 </div>
                 {/* Contenedor para la imagen */}
@@ -25,24 +26,24 @@ export default function Principal() {
                 </div>
             </div>
             <br />
-            <div className="mt-5 container text-center  bg-light">
+            <div className="mt-5 container text-center rounded-4 bg-white mb-4">
                 <div className="row align-items-center">
-                    <div className="col border-start border-end d-flex align-items-center justify-content-center">
-                        <img src="../../public/img/user_9606048.png" alt="users" className="me-2 mb-2" />
+                    <div className="col  border-end d-flex align-items-center justify-content-center">
+                        <img src="/img/user_9606048.png" alt="users" className="me-2 mb-2" />
                         <div>
                             <p><strong className="me-2" >+90</strong></p>
                             <p>users</p>
                         </div>
                     </div>
                     <div className="col d-flex align-items-center justify-content-center">
-                        <img src="../../public/img/location.png" alt="location" className="me-2 mb-2" />
+                        <img src="/img/location.png" alt="location" className="me-2 mb-2" />
                         <div>
                             <p><strong className="me-2" >+30</strong></p>
                             <p>locations</p>
                         </div>
                     </div>
-                    <div className="col border-start border-end d-flex align-items-center justify-content-center">
-                        <img src="../../public/img/storage.png" alt="server" className="me-2 mb-2" />
+                    <div className="col border-start  d-flex align-items-center justify-content-center">
+                        <img src="/img/storage.png" alt="server" className="me-2 mb-2" />
                         <div>
                             <p><strong className="me-2">+50</strong></p>
                             <p>servers</p>
@@ -51,9 +52,9 @@ export default function Principal() {
                 </div>
             </div>
             <br />
-            <div className="row mt-5">
+            <div className="row mt-5 bg-white rounded-3 mb-5">
                 {/* Contenedor para la imagen */}
-                <div className="col-md-6">
+                <div className="col-md-6 mt-5">
                     <img
                         src="https://img.freepik.com/free-vector/hand-drawn-vpn-illustration_23-2149223768.jpg?t=st=1691149456~exp=1691150056~hmac=42b8235e04a49d4881707ddab0aef339a78dbed1df24424d0bdedaa97ceba5e2"
                         alt="Imagen2"
@@ -99,7 +100,7 @@ export default function Principal() {
                 </div>
             </div>
             <br />
-            <Plans/>
+            <PlanType/>
             <br />
             <NetWork/>
         </main>

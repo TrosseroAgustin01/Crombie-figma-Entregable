@@ -9,9 +9,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Importa el CSS de Bootstrap
 
 //import "./navbar.css"
 
-const Navbar: React.FC = () => {
+export default function Navbar () {
     return (
-        <nav className="navbar navbar-light bg-white pt-4">
+        <nav className="navbar navbar-light bg-white pt-3">
             <div className="container">
                 {/* SVG a la izquierda */}
                 <a href="http://localhost:5173">
@@ -22,15 +22,9 @@ const Navbar: React.FC = () => {
                     </svg>
                 </a>
                 <h4 className="navbar-brand me-auto mt-2"><a className="text-decoration-none link-dark" href="http://localhost:5173">Lasles<strong>VPN</strong></a></h4>
-
-                {/* <div className="d-flex align-items-center text-secondary"> */}
-                {/* <a href="#" className="nav-link me-3">About</a>
-                    <a href="#" className="nav-link me-3">Features</a>
-                    <a href="#" className="nav-link me-3">Piercing</a>
-                    <a href="#" className="nav-link me-3">Testimonials</a>
-                    <a href="#" className="nav-link me-3">Help</a> */}
-                {/* </div> */}
-                <ul className="nav flex-grid aling-items-center">
+                
+                <div className='marg-der'>
+                <ul className="nav">
                     <li className="nav-item">
                         <a className="nav-link text-secondary" href="#">About</a>
                     </li>
@@ -47,9 +41,11 @@ const Navbar: React.FC = () => {
                         <a className="nav-link  text-secondary" href='#'>Help</a>
                     </li>
                 </ul>
+                </div>
+               
 
                 <div className='d-flex justify-content-end'>
-                    <button type="button" className="text-dark btn btn-outline-light">
+                    <button type="button" className="text-dark btn btn-outline-light me-4">
                         sing in
                     </button>
                     <button type="button" className="btn btn-outline-danger rounded-4 fw-light">
@@ -60,8 +56,6 @@ const Navbar: React.FC = () => {
         </nav>
     );
 };
-
-export default Navbar;
 /*
 export default function NavBar() {
     return (
