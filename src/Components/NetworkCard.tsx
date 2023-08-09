@@ -46,26 +46,26 @@ export const user4: UsersComments = {
     body: "alternative text only for testing aplication",
     usernames: "mati-gol",
     rating: (Math.floor(Math.random() * 5)),
-    img: "/img/faces/personal-profile_9366236.png"
+    img: "/img/faces/4.jpg"
 };
 
 export const user5: UsersComments = {
     body: "alternative text only for testing aplication",
     usernames: "fede-try",
     rating: (Math.floor(Math.random() * 5)),
-    img: "/img/faces/professional_9722579(1).png"
+    img: "/img/faces/6.jpg"
 };
 
 export const user6: UsersComments = {
     body: "alternative text only for testing aplication",
     usernames: "gise-crack",
     rating: (Math.floor(Math.random() * 5)),
-    img: "/img/faces/afro-hair_8734542.png"
+    img: "/img/faces/5.jpg"
 };
 
 export default function NetCard(props: UsersComments) {
     return (
-        <div className="card-body rounded-3">
+        <div className="card-body rounded-3 border-black me-5 md-5">
             <div className="d-flex align-items-center mb-2 mt-3">
                 <img className="rounded me-2" src={props.img} alt="carita" />
                 <h4>{props.usernames}</h4>
