@@ -1,12 +1,5 @@
 /* import axios from "axios"; */
 
-type UsersComments = {
-    body: string,
-    usernames: string,
-    rating: number,
-    img: string
-}
-
 /* const users = await axios.get('https://dummyjson.com/comments');
 
 export let usuarios:UsersComments[];
@@ -20,6 +13,13 @@ await users.data.map((data:any) => {
     } 
     usuarios.push(usuario);
 }); */
+
+export type UsersComments = {
+    body: string,
+    usernames: string,
+    rating: number,
+    img: string
+}
 
 export const user1: UsersComments = {
     body: "“Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.",
@@ -76,23 +76,18 @@ export default function NetCard(props: UsersComments) {
         </div>
     )
 }
- /* <div className="card-body rounded-3">
-            <div className="row mb-2 mt-3">
-                <div className="col-md-1 mx-auto md-3">
-                    <img className=" rounded mx-auto d-block" src={props.img} alt="carita" />
-                </div>
-                <div className="col-md-10 md-3">
-                    <h4 className="mx-auto">{props.usernames}</h4>
+/* <div className="card-body rounded-3 border border  me-5 md-5">
+            <div className="d-flex align-items-center mb-2 mt-3">
+                <img className="rounded me-2" src={props.img} alt="carita" />
+                <h4 className="">{props.usernames}</h4>
+                <div className="row mb-4">
+                    <div className="col-md-1">
+                        <img className="ms-auto" src="/img/icons/ant-design_star-filled.png" alt="estrellita" />
+                    </div>
+                    <div className="col-md-10">
+                        <p className="mb-0">{props.rating}</p>
+                    </div>
                 </div>
             </div>
             <p className="mx-auto"><strong>{props.body}</strong></p>
-            <div className="row mb-2 mt-3">
-                <div className="col-md-1 mx-auto me-3">
-                    <img src="/img/icons/ant-design_star-filled.png" alt="estrellita" />
-                </div>
-                <div className="col-md-10 md-3">
-                    <p>{props.rating}</p>
-                </div>
-            </div>
-            
         </div> */

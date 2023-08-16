@@ -48,7 +48,9 @@ export default function Carrousell() {
 >
         {
             aux.map((userName) => (
-                <NetCard {...userName}/>
+                <div className="mb-5 mx-auto ">
+                    <NetCard {...userName}/>
+                </div>
             ))
         }
 </Carousel>
@@ -98,48 +100,3 @@ export default function Carrousell() {
         </div>
     )
 } */}
-/* 
-
-import React, { useState } from 'react';
-import '../css/Slider.css'; // Estilos del slider
-const Carrousell = ({ aux }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Lógica para avanzar y retroceder entre las tarjetas
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % aux.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? aux.length - 1 : prevIndex - 1
-    );
-  };
-
-  return (
-    <div className="slider-container">
-      <div className="slider">
-        {aux.map((index) => (
-          <NetCard key={index} {...index} active={index === currentIndex} />
-        ))}
-      </div>
-      <div className="dots">
-        {aux.map((index) => (
-          <button
-            key={index}
-            className={`dot ${index === currentIndex ? 'active' : ''}`}
-            onClick={() => setCurrentIndex(index)}
-          ></button>
-        ))}
-      </div>
-      <button className="arrow left" onClick={prevSlide}>
-        &lt;
-      </button>
-      <button className="arrow right" onClick={nextSlide}>
-        &gt;
-      </button>
-    </div>
-  );
-};
-
-export default Carrousell; */
