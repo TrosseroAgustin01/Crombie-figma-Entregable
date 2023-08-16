@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+/* import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Plans() {
     return (
         <section className="text-center mt-5 ">
@@ -129,4 +129,4 @@ export default function Plans() {
             </div>
         </section>
     )
-}
+} */

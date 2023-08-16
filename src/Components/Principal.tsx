@@ -8,6 +8,7 @@ import Form from "./Form";
 import Subscription from "./Subcription";
 import Net2 from "./Net2";
 import Navbar from "./Navbar";
+import PruebaCard from "./PruebaPlan";
 
 export default function Principal() {
     return (
@@ -104,7 +105,8 @@ export default function Principal() {
                     </div>
                 </div>
                 <br />
-                <PlanType />
+                {/* <PlanType /> */}
+                <PruebaCard/>
                 <br />
                 <NetWork />
                 <br />
