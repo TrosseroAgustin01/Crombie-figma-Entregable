@@ -1,7 +1,7 @@
 import "../css/Principal.css"
 import "../../public/img/checked_190411.png"
 /* import Plans from "./Plans" */
-import PlanType from "./PlanType";
+/* import PlanType from "./PlanType"; */
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NetWork from "./Network";
 import Form from "./Form";

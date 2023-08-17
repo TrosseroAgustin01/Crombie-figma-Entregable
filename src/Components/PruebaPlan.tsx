@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react"
 
-/* type Planes = {
-    vectorUrl: string,
-    planType: string,
-    imgUrl: string,
-    comments: string[]
-    price: string
-} */
+type Planes = {
+    title: string,
+    benefits: string[],
+    price: string  | number,
+    currency?: string
+    type?: string
+}
 
 export default function PruebaCard() {
-    const [data, setData] = useState<[]>()
+    const [data, setData] = useState<Planes[]>()
     
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export default function PruebaCard() {
                         {data[0].title}
                     </h3>
                     {
-                        data[0].benefits.map((e,i) => (
+                        data[0].benefits.map((e:string,i:number) => (
                             <div className="row mb-2 mt-3">
                                 <div className="col-md-1 mx-auto me-3">
                                     <img src="/img/checked_190411.png" alt="checkbox" />
@@ -59,7 +59,7 @@ export default function PruebaCard() {
                         {data[1].title}
                     </h3>
                     {
-                        data[1].benefits.map((e,i) => (
+                        data[1].benefits.map((e:string,i:number) => (
                             <div className="row mb-2 mt-3">
                                 <div className="col-md-1 mx-auto me-3">
                                     <img src="/img/checked_190411.png" alt="checkbox" />
@@ -85,7 +85,7 @@ export default function PruebaCard() {
                         {data[2].title}
                     </h3>
                     {
-                        data[2].benefits.map((e,i) => (
+                        data[2].benefits.map((e:string,i:number) => (
                             <div className="row mb-2 mt-3">
                                 <div className="col-md-1 mx-auto me-3">
                                     <img src="/img/checked_190411.png" alt="checkbox" />

@@ -1,9 +1,9 @@
 import "../css/NetWork.css"
-import Carrousell from "./Carrousell";
-import  { user1, user2, user3, user4, user5, user6 } from "./NetworkCard";
+/* import Carrousell from "./Carrousell"; */
+/* import  { user1, user2, user3, user4, user5, user6 } from "./NetworkCard"; */
 
 export default function NetWork() {
-    const aux = [user1, user2, user3, user4, user5, user6];
+    /* const aux = [user1, user2, user3, user4, user5, user6]; */
     return (
         <section className="mt-5 bg-white rounded-3">
             <div className="text-center">
