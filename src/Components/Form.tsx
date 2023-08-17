@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../css/Form.css";
+const BASE_URL = "https://6xrb5goi1l.execute-api.us-east-1.amazonaws.com"
 
 interface Form {
     nombre: string;
@@ -20,7 +21,10 @@ export default function Form() {
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target;
-        setData({ ...data, [name]: value });
+        setData({ 
+            ...data, 
+            [name]: value 
+        });
         if (name === "phone") {
             setIsPhoneValid(validatePhoneNumber(value));
         }
@@ -28,6 +32,23 @@ export default function Form() {
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
+        fetch(`${BASE_URL}/api/send-email`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    console.log('Comentario enviado con éxito', response.json());
+                } else {
+                    console.error('Error al enviar el comentario');
+                }
+            })
+            .catch((error) => {
+                console.error('Error en la petición:', error);
+            });
         // Aquí puedes hacer algo con los datos del formulario, como enviarlos a un servidor
         console.log(data);
     };
