@@ -4,7 +4,7 @@
 </g>
 </svg> */
 
-import React from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importa el CSS de Bootstrap
 
 //import "./navbar.css"

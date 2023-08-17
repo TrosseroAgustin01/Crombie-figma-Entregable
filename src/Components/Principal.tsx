@@ -27,7 +27,7 @@ export default function Principal() {
                     {/* Contenedor para la imagen */}
                     <div className="col-md-6 d-flex justify-content-center pb-5">
                         {/* <Image1/> */}
-                        <img src="https://img.freepik.com/free-vector/hand-drawn-flat-design-vpn-illustration_23-2149255391.jpg?w=740&t=st=1691149178~exp=1691149778~hmac=a84fa1a3eaa31b855140844d419d242c22664757c5e555f6570bcaff3d81bc20" alt="Imagen" className="img1" />
+                        <img src="public/img/img1.avif" alt="Imagen" className="img1" />
                     </div>
                 </div>
                 <br />
