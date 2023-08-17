@@ -21,7 +21,7 @@ export default function PruebaCard() {
     }, [])
 
     if (!data || data.length < 0){
-        return <img className="" src="/img/loader.gif" alt="gif" />
+        return <img className="aling-item-center" src="/img/loader.gif" alt="gif" />
     }else{
         return (
             <div className="container ">
