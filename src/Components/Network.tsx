@@ -2,6 +2,16 @@ import "../css/NetWork.css"
 import Carrousell from "./Carrousell";
 
 export default function NetWork() {
+
+    /* const [comments, setComments] = useState<UsersComments[]>([])
+
+    useEffect(() => {
+        (async () => {
+            const res = await axios<{ comments: Array<UsersComments> }>('https://dummyjson.com/comments');
+            setComments(res.data.comments)
+        })()    
+    }, []) */
+    
     return (
         <section className="mt-5 bg-white rounded-3">
             <div className="text-center">
@@ -13,6 +23,12 @@ export default function NetWork() {
                     See <strong>LaslesVPN </strong>everywhere to make it easier for you when you move locations.
                 </p>
             </div>
+            {/* {comments.map((comment, index) => (
+                <div>
+                    {comment.}
+                    {index}
+                </div>
+            ))} */}
             <img className="img-fluid rounded mx-auto d-block border border-dark-subtle bg-dark mt-5 mb-5" src="/img/Huge Global.png" alt="image3" />
             <br />
             <img className="img-fluid rounded mx-auto d-block bg-dark mt-1" src="/img/Sponsored.png" alt="sponsors" />

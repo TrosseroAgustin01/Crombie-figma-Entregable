@@ -1,4 +1,6 @@
-/* import axios from "axios"; */
+import axios from "axios";
+
+import { useEffect, useState } from "react";
 
 type UsersComments = {
     body: string,
@@ -64,6 +66,11 @@ export const user6: UsersComments = {
 };
 
 export default function NetCard(props: UsersComments) {
+
+   
+
+    
+
     return (
         <div className="card-body rounded-3 border-black me-5 md-5">
             <div className="d-flex align-items-center mb-2 mt-3">
