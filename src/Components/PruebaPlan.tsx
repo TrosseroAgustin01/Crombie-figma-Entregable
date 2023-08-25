@@ -38,7 +38,7 @@ export default function PruebaCard() {
                                 <div className="col-md-1 mx-auto me-3">
                                     <img src="/img/checked_190411.png" alt="checkbox" />
                                 </div>
-                                <div className="col-md-10 md-3">
+                                <div className="col-md-10 md-3 mt-1">
                                     <p key={i}>{e}</p>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@ export default function PruebaCard() {
                                 <div className="col-md-1 mx-auto me-3">
                                     <img src="/img/checked_190411.png" alt="checkbox" />
                                 </div>
-                                <div className="col-md-10 md-3">
+                                <div className="col-md-10 md-3 mt-1">
                                     <p key={i}>{e}</p>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@ export default function PruebaCard() {
                                 <div className="col-md-1 mx-auto me-3">
                                     <img src="/img/checked_190411.png" alt="checkbox" />
                                 </div>
-                                <div className="col-md-10 md-3">
+                                <div className="col-md-10 md-3 mt-1 ">
                                     <p key={i}>{e}</p>
                                 </div>
                             </div>
