@@ -4,7 +4,7 @@
 </g>
 </svg> */
 
-import React from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importa el CSS de Bootstrap
 
 //import "./navbar.css"
@@ -13,7 +13,6 @@ export default function Navbar () {
     return (
         <nav className="navbar navbar-light bg-white pt-3">
             <div className="container">
-                {/* SVG a la izquierda */}
                 <a href="http://localhost:5173">
                     <svg width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Standard Collection 27">
@@ -23,8 +22,8 @@ export default function Navbar () {
                 </a>
                 <h4 className="navbar-brand me-auto mt-2"><a className="text-decoration-none link-dark" href="http://localhost:5173">Lasles<strong>VPN</strong></a></h4>
                 
-                <div className='marg-der'>
-                <ul className="nav">
+                <div className='marg-der '>
+                <ul className="nav container-fluid">
                     <li className="nav-item">
                         <a className="nav-link text-secondary" href="#">About</a>
                     </li>
@@ -56,35 +55,3 @@ export default function Navbar () {
         </nav>
     );
 };
-/*
-export default function NavBar() {
-    return (
-        <div className="container">
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                <div className="container-fluid">
-                    <div className="collapse navbar-collapse" id="navbarScroll">
-                    {svg}
-                    <h4>LaslesVPN</h4>
-                    <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" /* style="--bs-scroll-height: 100px;" >*/
-/*    <li className='nav-item'>
-       <a className='nav-item' href="">About</a>
-   </li>
-   <li className='nav-item'>
-       <a className='nav-item' href="">Features</a>
-   </li>
-   <li className='nav-item'>
-       <a className='nav-item' href="">Piercing</a>
-   </li>
-   <li className='nav-item'>
-       <a className='nav-item' href="">Testimonials</a>
-   </li>
-   <li className='nav-item'>
-       <a className='nav-item' href="">Help</a>
-   </li>
-</ul>
-</div>
-</div>
-</nav>
-</div> */
-    //)
-//}
