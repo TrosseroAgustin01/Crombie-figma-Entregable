@@ -1,37 +1,45 @@
-import { useEffect, useState } from "react";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 import "../css/Form.css";
+import { SubmitHandler, useForm } from "react-hook-form";
 const BASE_URL = "https://6xrb5goi1l.execute-api.us-east-1.amazonaws.com"
 
-interface Form {
+/* interface Form {
     nombre: string;
     email: string;
     body: string;
     phone: string;
-}
+} */
+const schema = yup
+    .object({
+        message: yup
+            .string()
+            .min(10, "Please be more specific")
+            .max(200, "Please be more specific").required(),
+        fullname: yup.string().min(3).max(25).required(),
+        phone: yup.string().min(9).max(15),
+        email: yup.string().required().email("Please enter your email address"),
+    })
+    .required();
+
+type Inputs = yup.InferType<typeof schema>
 
 export default function Form() {
-    const [data, setData] = useState<Form>({
-        nombre: "",
-        email: "",
-        body: "",
-        phone: "",
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+        reset
+        /* reset,
+        watch, */
+    } = useForm({
+        resolver: yupResolver(schema),
     });
-    const [formCharged, setFormCharged] = useState(false);
-    const [isPhoneValid, setIsPhoneValid] = useState(false);
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = event.target;
-        setData({ 
-            ...data, 
-            [name]: value 
-        });
-        if (name === "phone") {
-            setIsPhoneValid(validatePhoneNumber(value));
-        }
-    };
-
-    const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault();
+    const onSubmit/* : SubmitHandler<Inputs> */ = (data: Inputs) => {
+        /* console.log(data);
+        event.preventDefault(); */
         fetch(`${BASE_URL}/api/send-email`, {
             method: 'POST',
             headers: {
@@ -49,44 +57,85 @@ export default function Form() {
             .catch((error) => {
                 console.error('Error en la petición:', error);
             });
-        // Aquí puedes hacer algo con los datos del formulario, como enviarlos a un servidor
-        console.log(data);
+        reset();
     };
 
+    return (
+        <form onSubmit={handleSubmit(onSubmit)} className="container bg-white rounded-3 text-center">
+            <h1 className="pt-3">Contact Us!</h1>
+            <div className="mb-3 mt-2">
+                <br></br>
+                <input placeholder="Tell us your name"   {...register("fullname")} className={errors.fullname?.message ? "form-control mx-auto mt-4 border border-2 border-success" : "form-control mx-auto mt-4 border border-2 border-danger"} />
+            </div>
+            <div className="mb-3 mt-5">
+                <input placeholder="Tell us your email adress"  {...register("email")} className={errors.email?.message ? "form-control mx-auto border border-2 border-success" : "form-control mx-auto border border-2 border-danger"} />
+            </div>
+            <div className="mb-3 mt-5">
+                <textarea placeholder="Tell us your doubts"  {...register("message")} className={errors.message?.message ? "form-control mx-auto border border-2 border-success" : "form-control mx-auto border border-2 border-danger"}></textarea>
+            </div>
+            <div className="mb-3 mt-5">
+                <input placeholder="Tell us your mobile number" {...register("phone")} className={errors.phone?.message ? "form-control mx-auto border border-2 border-success" : "form-control mx-auto border border-2 border-danger body-bg-danger"}>
+                </input>
+            </div>
+            <input type="submit" disabled={isSubmitting} className={isSubmitting ? "btn btn-lg btn-primary mt-4" : "btn btn-lg btn-grey mt-4"} />
+        </form>
+    )
+}
+
+/* const [data, setData] = useState<Form>({
+        nombre: "",
+        email: "",
+        body: "",
+        phone: "",
+    });
+    const [formCharged, setFormCharged] = useState(false);
+    const [isPhoneValid, setIsPhoneValid] = useState(false);
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = event.target;
+        setData({ 
+            ...data, 
+            [name]: value 
+        });
+        if (name === "phone") {
+            setIsPhoneValid(validatePhoneNumber(value));
+        }
+    }; */
+
+/* const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    fetch(`${BASE_URL}/api/send-email`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+        .then((response) => {
+            if (response.ok) {
+                console.log('Comentario enviado con éxito', response.json());
+            } else {
+                console.error('Error al enviar el comentario');
+            }
+        })
+        .catch((error) => {
+            console.error('Error en la petición:', error);
+        });
+    
+    console.log(data);
+}; */
+/*
     const chargedInputs = () => {
         if (data.nombre.length > 0 && data.body.length > 0 && data.email.length > 0 && data.phone.length > 0) {
             setFormCharged(true)
         }
     }
-
+ 
     const validatePhoneNumber = (phone: string): boolean => {
         const phoneRegex = /^\d{10}$/; // Expresión regular para números de 10 dígitos
         return phoneRegex.test(phone);
     };
-
+ 
     useEffect(() => {
         chargedInputs()
-    }, [data,isPhoneValid])
-
-    return (
-            <form onSubmit={handleSubmit} className="container bg-white rounded-3 text-center">
-                <h1>Contact Us!</h1>
-                <div className="mb-3 mt-2">
-                    <br></br>
-                    <input required placeholder="Name" type="text" id="nombre" name="nombre" value={data.nombre} onChange={handleInputChange} className={data.nombre.length !== 0 && data.nombre ? "form-control mx-auto mt-4 border border-2 border-success" : "form-control mx-auto mt-4 border border-2 border-danger"} />
-                </div>
-                <div className="mb-3 mt-5">
-                    <input required placeholder="Mail" type="email" id="email" name="email" value={data.email} onChange={handleInputChange} className={data.email.length !== 0 && data.email ? "form-control mx-auto border border-2 border-success" : "form-control mx-auto border border-2 border-danger"} />
-                </div>
-                <div className="mb-3 mt-5">
-                    <textarea required placeholder="Write your Doubts" id="body" name="body" value={data.body} onChange={handleInputChange} className={data.body.length !== 0 && data.body ? "form-control mx-auto border border-2 border-success" : "form-control mx-auto border border-2 border-danger"}></textarea>
-                </div>
-                <div className="mb-3 mt-5">
-                    <input required placeholder={data.phone.length === 0 && !data.phone  && !isPhoneValid ? "Plese write a right number": "let us know your phone number"} id="phone" name="phone" value={data.phone} onChange={handleInputChange} className={data.phone.length !== 0 && data.phone  && isPhoneValid ? "form-control mx-auto border border-2 border-success" : "form-control mx-auto border border-2 border-danger body-bg-danger"}>
-                    </input>
-                </div>
-                <input id="submitButton" type="submit" value="Submit" className={formCharged ? "btn btn-lg btn-primary mt-4" : "btn btn-lg btn-grey mt-4"} disabled={formCharged ? false : true} />
-
-            </form>
-    )
-}
+    }, [data,isPhoneValid]) */

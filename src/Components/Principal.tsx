@@ -27,7 +27,7 @@ export default function Principal() {
                     <div className="col-md-6 d-flex justify-content-center pb-5">
                         {/* <Image1/> */}
                         {/* https://img.freepik.com/free-vector/hand-drawn-flat-design-vpn-illustration_23-2149255391.jpg?w=740&t=st=1691149178~exp=1691149778~hmac=a84fa1a3eaa31b855140844d419d242c22664757c5e555f6570bcaff3d81bc20 */}
-                        <img src="/img/img1.png" alt="Imagen" className="img1" />
+                        <img src="/img/img1.png" alt="Imagen" className="img-fluid" style={{width:"30rem"}} />
                     </div>
                 </div>
                 <br />
@@ -59,18 +59,21 @@ export default function Principal() {
                 <br />
                 <div className="row mt-5 bg-white rounded-3 mb-5">
                     {/* Contenedor para la imagen */}
-                    <div className="col-md-6 mt-5">
+                    <div className="col-md-6  d-flex justify-content-center align-items-center">
                         <img
                             src="https://img.freepik.com/free-vector/hand-drawn-vpn-illustration_23-2149223768.jpg?t=st=1691149456~exp=1691150056~hmac=42b8235e04a49d4881707ddab0aef339a78dbed1df24424d0bdedaa97ceba5e2"
                             alt="Imagen2"
-                            className="img2"
+                            className="img-fluid aling-item-center pe-5" 
+                            style={{
+                                width:"33rem"
+                            }}
                         />
                     </div>
                     {/* Contenedor para el contenido */}
                     <div className="col-md-6">
                         <h1 className="mt-5">We Provide Many Features You Can Use</h1>
-                        <p className="mt-5 mb-5">You can explore the features that we provide with fun and have their own functions each feature.</p>
-                        <div className="row mb-4 mt-3">
+                        <p className="mt-4 mb-4">You can explore the features that we provide with fun and have their own functions each feature.</p>
+                        <div className="row mb-4 mt-2">
                             <div className="col-md-1">
                                 <img src="/img/checked_190411.png" alt="checkbox" />
                             </div>
@@ -94,7 +97,7 @@ export default function Principal() {
                                 <p>Supercharged VPN</p>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row mb-3">
                             <div className="col-md-1">
                                 <img src="/img/checked_190411.png" alt="checkbox" />
                             </div>
