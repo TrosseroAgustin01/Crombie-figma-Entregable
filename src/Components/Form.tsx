@@ -31,8 +31,6 @@ export default function Form() {
         handleSubmit,
         formState: { errors, isSubmitting },
         reset
-        /* reset,
-        watch, */
     } = useForm({
         resolver: yupResolver(schema),
     });
@@ -65,23 +63,23 @@ export default function Form() {
             <h1 className="pt-3">Contact Us!</h1>
             <div className="mb-3 mt-2">
                 <br></br>
-                <input placeholder="Tell us your name"   {...register("fullname")} className={errors.fullname?.message ? "form-control mx-auto mt-4 border border-2 border-success" : "form-control mx-auto mt-4 border border-2 border-danger"} />
+                <input placeholder="Tell us your name"   {...register("fullname")} className={/* errors.fullname?.message ? */ "form-control mx-auto mt-4 border border-2 border-success" /* : "form-control mx-auto mt-4 border border-2 border-danger" */} />
             </div>
             <div className="mb-3 mt-5">
-                <input placeholder="Tell us your email adress"  {...register("email")} className={errors.email?.message ? "form-control mx-auto border border-2 border-success" : "form-control mx-auto border border-2 border-danger"} />
+                <input placeholder="Tell us your email adress"  {...register("email")} className={/* errors.email?.message ? */ "form-control mx-auto border border-2 border-success" /* : "form-control mx-auto border border-2 border-danger" */} />
             </div>
             <div className="mb-3 mt-5">
-                <textarea placeholder="Tell us your doubts"  {...register("message")} className={errors.message?.message ? "form-control mx-auto border border-2 border-success" : "form-control mx-auto border border-2 border-danger"}></textarea>
+                <textarea placeholder="Tell us your doubts"  {...register("message")} className={/* errors.message?.message ? */ "form-control mx-auto border border-2 border-success" /* : "form-control mx-auto border border-2 border-danger" */}></textarea>
             </div>
             <div className="mb-3 mt-5">
-                <input placeholder="Tell us your mobile number" {...register("phone")} className={errors.phone?.message ? "form-control mx-auto border border-2 border-success" : "form-control mx-auto border border-2 border-danger body-bg-danger"}>
+                <input placeholder="Tell us your mobile number" {...register("phone")} className={/* errors.phone?.message ? */ "form-control mx-auto border border-2 border-success"/*  : "form-control mx-auto border border-2 border-danger body-bg-danger" */}>
                 </input>
             </div>
-            <input type="submit" disabled={isSubmitting} className={isSubmitting ? "btn btn-lg btn-primary mt-4" : "btn btn-lg btn-grey mt-4"} />
+            <button type="submit" disabled={isSubmitting} className="button-shadow2 btn  btn-lg btn-danger mt-5 mb-5">Send</button>
         </form>
     )
 }
-
+//  className={/* isSubmitting ? */ "btn btn-lg btn-primary mt-4" /* : "btn btn-lg btn-grey mt-4" */}
 /* const [data, setData] = useState<Form>({
         nombre: "",
         email: "",
