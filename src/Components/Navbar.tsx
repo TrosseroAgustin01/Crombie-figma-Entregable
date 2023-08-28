@@ -58,7 +58,7 @@ export default function Navbar () {
             </div>
         </nav>
     );
-};
+}
 {/* <nav className="navbar navbar-light bg-white pt-3">
     <div className="container">
         <a href="http://localhost:5173">
