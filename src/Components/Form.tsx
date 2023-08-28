@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import "../css/Form.css";
-import { SubmitHandler, useForm } from "react-hook-form";
+import {  useForm } from "react-hook-form";
 const BASE_URL = "https://6xrb5goi1l.execute-api.us-east-1.amazonaws.com"
 
 /* interface Form {
@@ -29,7 +29,7 @@ export default function Form() {
     const {
         register,
         handleSubmit,
-        formState: { errors, isSubmitting },
+        formState: {  isSubmitting },
         reset
     } = useForm({
         resolver: yupResolver(schema),
