@@ -27,7 +27,8 @@ export default function Principal() {
                     <div className="col-md-6 d-flex justify-content-center pb-5">
                         {/* <Image1/> */}
                         {/* https://img.freepik.com/free-vector/hand-drawn-flat-design-vpn-illustration_23-2149255391.jpg?w=740&t=st=1691149178~exp=1691149778~hmac=a84fa1a3eaa31b855140844d419d242c22664757c5e555f6570bcaff3d81bc20 */}
-                        <img src="/img/img1.png" alt="Imagen" className="img-fluid" style={{width:"30rem"}} />
+
+                        <img src="/img/img1.png" alt="Imagen" className=" img-fluid" style={{width:"30rem"}} />
                     </div>
                 </div>
                 <br />
