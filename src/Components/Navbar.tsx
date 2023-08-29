@@ -17,7 +17,7 @@ export default function Navbar () {
     };
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container">
+            <div className="container me-5 ">
             <a href="http://localhost:5173">
                     <svg width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Standard Collection 27">
@@ -31,8 +31,8 @@ export default function Navbar () {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 
-                <div className={`collapse navbar-collapse me-5 ${openButton ? 'show' : ''}`}  id="navbarNav">
-                    <ul className="navbar-nav me-auto nav">
+                <div className={`collapse navbar-collapse me-5 ${openButton ? 'show' : ''}  `}  id="navbarNav">
+                    <ul className="navbar-nav mx-auto nav ">
                         <li className="nav-item">
                             <a className="nav-link" href="#">Inicio</a>
                         </li>

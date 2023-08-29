@@ -2,6 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import "../css/Form.css";
 import {  useForm } from "react-hook-form";
+/* import { useState } from 'react'; */
 const BASE_URL = "https://6xrb5goi1l.execute-api.us-east-1.amazonaws.com"
 
 /* interface Form {
@@ -25,11 +26,12 @@ const schema = yup
 type Inputs = yup.InferType<typeof schema>
 
 export default function Form() {
+    /* const [fails,setFails] = useState({}); */
 
     const {
         register,
         handleSubmit,
-        formState: {  isSubmitting },
+        formState: { errors },
         reset
     } = useForm({
         resolver: yupResolver(schema),
@@ -48,12 +50,17 @@ export default function Form() {
             .then((response) => {
                 if (response.ok) {
                     console.log('Comentario enviado con éxito', response.json());
+                    alert('Your doubts has been successfully sent')
                 } else {
-                    console.error('Error al enviar el comentario');
+                    /* setFails(
+                        errors
+                    ) */
+                    console.error('failure sending request')
+                    /* alert(`plese solve de following errors: ${fails}`) */
                 }
             })
             .catch((error) => {
-                console.error('Error en la petición:', error);
+                console.error('Error in the request:', error);
             });
         reset();
     };
@@ -63,19 +70,31 @@ export default function Form() {
             <h1 className="pt-3">Contact Us!</h1>
             <div className="mb-3 mt-2">
                 <br></br>
-                <input placeholder="Tell us your name"   {...register("fullname")} className={/* errors.fullname?.message ? */ "form-control mx-auto mt-4 border border-2 border-success" /* : "form-control mx-auto mt-4 border border-2 border-danger" */} />
+                <input placeholder="Tell us your name"   {...register("fullname")} className={!errors.fullname?.message ? "form-control mx-auto mt-4 border border-2 border-success" : "form-control mx-auto mt-4 border border-2 border-danger"} />
+                {
+                    errors.fullname?.message && <p>{errors.fullname?.message}</p>
+                }
             </div>
             <div className="mb-3 mt-5">
-                <input placeholder="Tell us your email adress"  {...register("email")} className={/* errors.email?.message ? */ "form-control mx-auto border border-2 border-success" /* : "form-control mx-auto border border-2 border-danger" */} />
+                <input placeholder="Tell us your email adress"  {...register("email")} className={!errors.email?.message ? "form-control mx-auto border border-2 border-success" : "form-control mx-auto border border-2 border-danger"} />
+                {
+                    errors.email?.message && <p>{errors.email?.message}</p>
+                }
             </div>
             <div className="mb-3 mt-5">
-                <textarea placeholder="Tell us your doubts"  {...register("message")} className={/* errors.message?.message ? */ "form-control mx-auto border border-2 border-success" /* : "form-control mx-auto border border-2 border-danger" */}></textarea>
+                <textarea placeholder="Tell us your doubts"  {...register("message")} className={!errors.message?.message ? "form-control mx-auto border border-2 border-success" : "form-control mx-auto border border-2 border-danger"}></textarea>
+                {
+                    errors.message?.message && <p>{errors.message?.message}</p>
+                }
             </div>
             <div className="mb-3 mt-5">
-                <input placeholder="Tell us your mobile number" {...register("phone")} className={/* errors.phone?.message ? */ "form-control mx-auto border border-2 border-success"/*  : "form-control mx-auto border border-2 border-danger body-bg-danger" */}>
+                <input placeholder="Tell us your mobile number" {...register("phone")} className={!errors.phone?.message ? "form-control mx-auto border border-2 border-success" : "form-control mx-auto border border-2 border-danger body-bg-danger"}>
                 </input>
+                {
+                    errors.phone?.message && <p>{errors.phone?.message}</p>
+                }
             </div>
-            <button type="submit" disabled={isSubmitting} className="button-shadow2 btn  btn-lg btn-danger mt-5 mb-5">Send</button>
+            <button type="submit" /* disabled={isSubmitting} */ className="button-shadow2 btn  btn-lg btn-danger mt-5 mb-5">Send</button>
         </form>
     )
 }
